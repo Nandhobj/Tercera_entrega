@@ -1,0 +1,15 @@
+{% extends "blog/base.html" %}
+
+{% block contenido %}
+<div class="card">
+    <h2>Nuevo mensaje</h2>
+    <p><a href="{% url 'messaging:inbox' %}">← Volver</a></p>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Enviar</button>
+    </form>
+</div>
+{% endblock %}
+

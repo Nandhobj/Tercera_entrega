@@ -1,0 +1,18 @@
+{% extends "blog/base.html" %}
+
+{% block contenido %}
+<div class="card">
+    <h2>Iniciar sesión</h2>
+    <p style="color:#555; margin-top:0;">Ingresá con tu usuario y contraseña.</p>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Ingresar</button>
+    </form>
+
+    <p style="margin-top:14px;">
+        ¿No tenés cuenta? <a href="{% url 'signup' %}">Crear cuenta</a>
+    </p>
+</div>
+{% endblock %}

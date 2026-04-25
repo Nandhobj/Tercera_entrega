@@ -1,0 +1,21 @@
+{% extends "blog/base.html" %}
+
+{% block contenido %}
+<div class="card">
+    <p>
+        <a href="{% url 'messaging:inbox' %}">← Inbox</a> |
+        <a href="{% url 'messaging:sent' %}">Enviados</a> |
+        <a href="{% url 'messaging:compose' %}">Nuevo</a>
+    </p>
+
+    <h2>{{ message.subject|default:"(sin asunto)" }}</h2>
+    <p style="color: #555;">
+        De <strong>{{ message.sender.username }}</strong> para <strong>{{ message.recipient.username }}</strong>
+        · {{ message.created_at|date:"Y-m-d H:i" }}
+    </p>
+
+    <hr>
+    <p style="white-space: pre-wrap;">{{ message.body }}</p>
+</div>
+{% endblock %}
+

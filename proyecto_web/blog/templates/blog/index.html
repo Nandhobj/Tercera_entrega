@@ -3,21 +3,37 @@
 {% block contenido %}
 
 <div class="card">
-    <h2>Bienvenido al Blog</h2>
-    <p>Este es el inicio del proyecto Django.</p>
+    <h2>Bienvenido/a</h2>
+    <p style="color:#555; margin-top:0;">
+        Este sitio es un proyecto en Django que combina un blog, páginas tipo “artículo” y mensajería entre usuarios.
+        Desde la barra de navegación podés recorrer todas las secciones.
+    </p>
+    <p>
+        <a href="{% url 'pages:page_list' %}">Ver Pages</a> |
+        <a href="{% url 'lista_posts' %}">Ver Posts</a>
+        {% if not user.is_authenticated %}
+            | <a href="{% url 'signup' %}">Crear cuenta</a>
+        {% endif %}
+    </p>
 </div>
 
 <div class="card">
     <h3>Sobre el proyecto</h3>
-    <p>Este blog permite gestionar autores, publicaciones y comentarios utilizando Django.</p>
+    <p style="margin-top:0;">
+        Está construido con el patrón MVT (Modelo - Vista - Template), incluye autenticación (registro, login/logout),
+        perfil editable con avatar, un módulo de <strong>Pages</strong> con editor de texto enriquecido, y un sistema de
+        <strong>mensajes</strong> para comunicarte con otros usuarios.
+    </p>
 </div>
 
 <div class="card">
     <h3>Secciones disponibles</h3>
     <ul>
-        <li>Autores</li>
-        <li>Posts</li>
-        <li>Comentarios</li>
+        <li><strong>About</strong>: conocé al dueño/a del sitio.</li>
+        <li><strong>Pages</strong>: listado de páginas con “Leer más” para ver el detalle.</li>
+        <li><strong>Blog</strong>: publicaciones (posts) con listado, detalle y buscador.</li>
+        <li><strong>Profile</strong>: tus datos, avatar y cambio de contraseña.</li>
+        <li><strong>Messages</strong>: inbox, enviados y redacción de mensajes.</li>
     </ul>
 </div>
 

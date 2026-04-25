@@ -1,0 +1,24 @@
+{% extends "blog/base.html" %}
+
+{% block contenido %}
+<div class="card">
+    <h2>Enviados</h2>
+    <p>
+        <a href="{% url 'messaging:compose' %}">Nuevo mensaje</a> |
+        <a href="{% url 'messaging:inbox' %}">Inbox</a>
+    </p>
+
+    {% for m in sent_messages %}
+        <div style="margin: 12px 0; padding-top: 10px; border-top: 1px solid #eee;">
+            <p style="margin: 0;">
+                <a href="{% url 'messaging:detail' m.pk %}">
+                    {{ m.subject|default:"(sin asunto)" }}
+                </a>
+            </p>
+            <p style="margin: 6px 0; color: #555;">Para {{ m.recipient.username }} · {{ m.created_at|date:"Y-m-d H:i" }}</p>
+        </div>
+    {% empty %}
+        <p>No hay mensajes enviados aún.</p>
+    {% endfor %}
+</div>
+{% endblock %}

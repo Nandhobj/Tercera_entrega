@@ -1,0 +1,18 @@
+{% extends "blog/base.html" %}
+
+{% block contenido %}
+<div class="card">
+    <h2>Crear cuenta</h2>
+    <p style="color:#555; margin-top:0;">Completá tus datos para registrarte.</p>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Registrarse</button>
+    </form>
+
+    <p style="margin-top:14px;">
+        ¿Ya tenés cuenta? <a href="{% url 'login' %}">Iniciar sesión</a>
+    </p>
+</div>
+{% endblock %}

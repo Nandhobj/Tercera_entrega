@@ -1,0 +1,28 @@
+{% extends "blog/base.html" %}
+
+{% block contenido %}
+
+<div class="card">
+    <h2>Buscar Post</h2>
+
+    <form method="get">
+        {{ form.as_p }}
+        <button type="submit">Buscar</button>
+    </form>
+
+    {% if request.GET %}
+        {% if resultados %}
+            <ul>
+                {% for post in resultados %}
+                    <li>
+                        <a href="{% url 'detalle_post' post.id %}">{{ post.titulo }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No hay resultados.</p>
+        {% endif %}
+    {% endif %}
+</div>
+
+{% endblock %}

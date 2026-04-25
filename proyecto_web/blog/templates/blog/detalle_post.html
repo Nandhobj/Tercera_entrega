@@ -1,0 +1,18 @@
+{% extends "blog/base.html" %}
+
+{% block contenido %}
+
+<div class="card">
+    <p><a href="{% url 'lista_posts' %}">← Volver</a></p>
+
+    <h2>{{ post.titulo }}</h2>
+    <p style="white-space: pre-wrap;">{{ post.contenido }}</p>
+
+    <hr>
+    <p>
+        <a href="{% url 'editar_post' post.id %}">Editar</a> |
+        <a href="{% url 'eliminar_post' post.id %}">Eliminar</a>
+    </p>
+</div>
+
+{% endblock %}
