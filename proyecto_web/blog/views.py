@@ -1,7 +1,7 @@
-from .forms import BuscarPostForm
+from django.shortcuts import get_object_or_404, redirect, render
+
+from .forms import BuscarPostForm, PostForm
 from .models import Post
-from django.shortcuts import render
-from .models import Autor, Post, Comentario
 
 def index(request):
     return render(request, "blog/index.html")
@@ -23,11 +23,6 @@ def buscar_post(request):
         'form': form,
         'resultados': resultados
     })
-from django.shortcuts import redirect, get_object_or_404
-from .forms import PostForm
-
-def inicio(request):
-    return render(request, 'blog/inicio.html')
 
 def crear_post(request):
     if request.method == 'POST':
