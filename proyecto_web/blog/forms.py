@@ -9,6 +9,11 @@ class AutorForm(forms.ModelForm):
 
 
 class PostForm(forms.ModelForm):
+    fecha = forms.DateField(
+        widget=forms.DateInput(attrs={"type": "date"}),
+        input_formats=["%Y-%m-%d"],
+    )
+
     class Meta:
         model = Post
         fields = '__all__'
