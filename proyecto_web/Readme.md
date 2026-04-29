@@ -30,3 +30,6 @@ Aplicación web estilo blog programada en Python con Django (patrón MVT). Inclu
 
 ## Nota sobre base de datos / media
 - No subir `db.sqlite3` ni `media/` al repo (están en `.gitignore`).
+
+## Link al video de la pagina
+https://drive.google.com/file/d/19V14Q6nB1lAk1oCvtY9tCBAuK64M4WA8/view?usp=sharing
